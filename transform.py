@@ -6,16 +6,6 @@
 
 import pandas as pd
 
-
-# In[ ]:
-
-
-
-
-
-# In[3]:
-
-
 df = pd.read_csv("./downloaded0.csv")
 df.head(20)
 df.columns
