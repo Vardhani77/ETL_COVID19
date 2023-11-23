@@ -1,0 +1,38 @@
+name: ETL Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  etl:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Extract data
+        run: python extract.py
+
+      - name: Transform data
+        run: python transform.py
+
+      - name: Load and visualize data
+        run: python visualize.py
+      
+      - name: Upload Visualization Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: visualizations
+          path: scatter_plot.png

@@ -15,4 +15,4 @@ fig1 = px.scatter(
 )
 
 # Save the scatter plot for Cumulative Cases over Time as an image file
-fig1.write_image("scatter_plot_cumulative_cases.png")
+fig1.write_image("scatter_plot.png")
